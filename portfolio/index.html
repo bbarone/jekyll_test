@@ -3,23 +3,26 @@ layout: default
 title: Portfolio
 ---
  
-<div id = "issue">
-	{% for post in paginator.posts %}
-	<div id = "cover">
-		
-		<h4>{{ post.date | date: "%d %B %Y" }}</h4>
-		
-		<div class = "line"></div>
-		
-		<h2>{{ post.title }}</h2>
-		
-	</div>
-	
-	{{ post.content }}
-
-</div>
+<section class="content">
+  <h2>Portfolio</h2>
+ 
+  <p>Check out my images below!</p>
+</section>
+ 
+<ul class="entries">
+  {% for post in paginator.posts %}
+ 
+  <li>
+    <a href="{{ post.url }}">
+      <img src="{{ post.image }}" />
+      <h3>{{ post.title }}</h3>
+	  <p>{{ post.content }}</p>
+	  <p>{{ post.newcontent }}</p>
+    </a>
+  </li>
  
   {% endfor %}
+</ul>
 
 <!-- Pagination links -->
 <div class="pagination">
